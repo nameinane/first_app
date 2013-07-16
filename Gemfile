@@ -20,6 +20,10 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
+#  gem 'pg', '0.15.1'
+  # Warning, if you remove the version number and end up with postgres > 0.14, expect this:
+  # #/app/vendor/bundle/ruby/2.0.0/gems/activerecord-3.2.13/lib/active_record/connection_adapters/postgresql_adapter.rb:1216:in `initialize': invalid connection option "fallback_application_name" (PG::Error)
+  # when trying to get app running on Heroku
+  gem 'pg', '=0.14.1'
   gem 'rails_12factor', '0.0.2'
 end
